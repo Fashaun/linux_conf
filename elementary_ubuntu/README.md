@@ -1,0 +1,6 @@
+Debian OS, 
+
+Terminal : 
+
+
+.bashrc
