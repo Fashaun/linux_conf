@@ -1,0 +1,45 @@
+
+" ----- Shaun's vimrc -----
+
+" Show basic Syntax
+syntax on
+
+" Show line number
+set nu
+
+" HilightSearch
+set hlsearch
+
+" Set ruler
+
+set ruler
+
+" For vim 8.0 , default mouse=a, but it is not convienent for me to copy and paste
+set mouse=r
+
+" Key List
+" <Esc> - esc
+" <CR> - Enter
+
+" imap
+  " Hot key for exit insert mode
+  :imap ;; <Esc>
+
+" inoremap
+:inoremap ( ()<Esc>i
+:inoremap " ""<Esc>i
+:inoremap ' ''<Esc>i
+:inoremap [ []<Esc>i
+:inoremap {<CR> {<CR>}<Esc>ko
+:inoremap {{ {}<ESC>i
+
+
+" Enable backspace in insert mode
+set backspace=2
+
+" Enable the line under cursor for seeing code clearly
+set cursorline
+
+" Tab
+    set expandtab
+    set tabstop=4

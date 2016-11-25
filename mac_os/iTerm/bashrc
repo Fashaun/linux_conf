@@ -1,0 +1,22 @@
+
+#Alias -- TestSucc
+alias ls='ls -alG'
+
+#Environment var 
+    #vim 
+      export vim_path="/usr/share/vim" # -- succ
+
+    #history
+      export HISTSIZE=10000 # -- succ 
+      export HISTFILESIZE=400000000 # -- succ
+      export HISTCONTROL=ignoredups # -- succ
+      # don't make duplicate history
+      shopt -s histappend
+
+#Completion
+    #Show ssh completion by history -- TestFail
+      complete -W "$(echo $(grep '^ssh ' $HOME/.bash_history | sort -u | sed 's/^ssh //'))" ssh
+
+
+#prompt
+export PROMPT_COMMAND="${PROMPT_COMMAND:-:} ; history -a; history -n" # -- succ
