@@ -1,6 +1,12 @@
 
 #Alias -- TestSucc
-alias ls='ls -alG'
+alias ls='ls -alCG' #al: all, C: column,G: color 
+alias grep="grep --color=auto"
+alias ps="ps -ax"
+alias ..="cd .."
+alias ..="cd ../../"
+alias ~="cd ~"
+
 
 #Environment var 
     #vim 
@@ -19,4 +25,14 @@ alias ls='ls -alG'
 
 
 #prompt
+function sean_prompt {
+
+    local BLUE="\[\033[0;35m\]"
+    local CYAN="\[\033[0;36m\]"
+    local WHITE="\[\033[1;37m\]"
+    export PS1="$WHITE[\t]$BLUE \u at \h:$CYAN\w$WHITE\n\$ "
+}
+sean_prompt
+
+#prompt command
 export PROMPT_COMMAND="${PROMPT_COMMAND:-:} ; history -a; history -n" # -- succ
