@@ -79,6 +79,10 @@ let g:BASH_AuthorName   = 'Shaun Lin'
 let g:BASH_Email        = 'fashionshow0415@gmail.com'
 let g:BASH_Company      = 'Open Source Corporation'''''''
 
+"filetype extend for 4ipnet html template
+au BufReadPost *.tpl set filetype=html
+
+
 " vim-plug plugin manager for ondemand loading 
 call plug#begin('~/.vim/plugged')
     

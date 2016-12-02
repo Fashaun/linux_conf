@@ -1,0 +1,16 @@
+[user]
+	name = fashaun
+	email = fashionshow0@gmail.com
+[alias]
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	remo = remote
+	ph = push
+	pl = pull
+	cn = clone
+[color]
+	ui = true
+	diff = auto
+	log = auto
