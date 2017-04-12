@@ -1,3 +1,3 @@
-Plugin Dir
+Plugin Dir : 
 
-vimrc could be re-use from mac-os
+vimrc : vimrc could be re-use from mac-os
