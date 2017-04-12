@@ -96,4 +96,8 @@ call plug#begin('~/.vim/plugged')
         Plug 'stanangeloff/php.vim'
     "matchit : use % to jump end tag or end }/)/], depend on filetype
         Plug 'matchit.zip'
+    "cscope db creation"
+        Plug 'brookhong/cscope.vim
+    "cscope keymap - Mirror from http://cscope.sourceforge.net/cscope_maps.vim
+        Plug 'chazy/cscope_maps'
 call plug#end()
