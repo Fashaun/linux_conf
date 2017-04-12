@@ -39,6 +39,8 @@ set mouse=r
 :inoremap {<CR> {<CR>}<Esc>ko
 :inoremap {{ {}<ESC>i
 
+" Plugin key map
+map <f9> :Tlist<CR>
 
 " Enable backspace in insert mode
 set backspace=2
@@ -100,4 +102,6 @@ call plug#begin('~/.vim/plugged')
         Plug 'brookhong/cscope.vim
     "cscope keymap - Mirror from http://cscope.sourceforge.net/cscope_maps.vim
         Plug 'chazy/cscope_maps'
+    "For C taglist
+        Plug 'taglist.vim'
 call plug#end()
