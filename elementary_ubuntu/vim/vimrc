@@ -1,0 +1,110 @@
+
+" ----- Shaun's vimrc -----
+
+" Make vim for useful"
+set nocompatible " -- Testfail"
+
+" Show basic Syntax
+syntax on
+
+" file type should set off for some purpose
+
+
+" Show line number
+set nu
+
+" HilightSearch
+set hlsearch
+set incsearch
+
+" Set ruler
+set ruler
+
+" For vim 8.0 , default mouse=a, but it is not convienent for me to copy and paste
+set mouse=r
+
+" Key List
+" <Esc> - esc
+" <CR> - Enter
+
+" imap
+  " Hot key for exit insert mode
+  :imap ;; <Esc>
+
+" inoremap
+:inoremap ( ()<Esc>i
+:inoremap " ""<Esc>i
+:inoremap ' ''<Esc>i
+:inoremap [ []<Esc>i
+:inoremap {<CR> {<CR>}<Esc>ko
+:inoremap {{ {}<ESC>i
+
+" Plugin key map
+map <f9> :Tlist<CR> "taglist
+
+" Enable backspace in insert mode
+set backspace=2
+
+" Enable the line under cursor/color the same column as cursor for seeing code clearly
+set cursorline
+"set cursorcolumn
+
+" Tab
+    set expandtab
+    " 自動縮排以四空格為基準
+    set tabstop=4 "width of tab
+    set shiftwidth=4 "width of indent
+    set smarttab " Delete tab (4 spaces) by 1 backspace 
+
+" Indent
+    set smartindent
+    set autoindent
+
+" Mode line
+    set modeline
+    set modelines=2
+    " ex: Makefile first line(# vim: set ts=4 sw=4 noet:) noet=noexpandtab
+
+" Set history
+set history=1000 " cmd history
+
+" English spell 
+"set spell " show spell error use z= to check spell suggestion
+
+" Show file name in window titlebar
+set title " -- Testfail"
+
+" auto read when file is changed from outside
+set autoread
+
+let g:BASH_AuthorName   = 'Shaun Lin'
+let g:BASH_Email        = 'fashionshow0415@gmail.com'
+let g:BASH_Company      = 'Open Source Corporation'''''''
+
+"filetype extend for 4ipnet html template
+au BufReadPost *.tpl set filetype=html
+
+
+" vim-plug plugin manager for ondemand loading 
+call plug#begin('~/.vim/plugged')
+    
+    "bash-support"
+        Plug 'vim-scripts/bash-support.vim'
+    "ctrlp plugin"
+        Plug 'kien/ctrlp.vim'
+    "power line
+        Plug 'powerline/powerline'
+    "php
+        Plug 'stanangeloff/php.vim'
+    "matchit : use % to jump end tag or end }/)/], depend on filetype
+        Plug 'vim-scripts/matchit.zip'
+    "cscope db creation"
+        Plug 'brookhong/cscope.vim'
+    "cscope keymap - Mirror from http://cscope.sourceforge.net/cscope_maps.vim
+        Plug 'chazy/cscope_maps'
+    "For C taglist
+        "Plug 'vim-scripts/taglist.vim'
+        
+        
+    "For html folding ???    
+call plug#end()
