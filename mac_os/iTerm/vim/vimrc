@@ -89,7 +89,7 @@ au BufReadPost *.tpl set filetype=html
 call plug#begin('~/.vim/plugged')
     
     "bash-support"
-        Plug 'bash-support.vim'
+        Plug 'vim-scripts/bash-support.vim'
     "ctrlp plugin"
         Plug 'kien/ctrlp.vim'
     "power line
@@ -97,13 +97,13 @@ call plug#begin('~/.vim/plugged')
     "php
         Plug 'stanangeloff/php.vim'
     "matchit : use % to jump end tag or end }/)/], depend on filetype
-        Plug 'matchit.zip'
+        Plug 'vim-scripts/matchit.zip'
     "cscope db creation"
-        Plug 'brookhong/cscope.vim
+        Plug 'brookhong/cscope.vim'
     "cscope keymap - Mirror from http://cscope.sourceforge.net/cscope_maps.vim
         Plug 'chazy/cscope_maps'
     "For C taglist
-        Plug 'taglist.vim'
+        Plug 'vim-scripts/taglist.vim'
         
         
     "For html folding ???    

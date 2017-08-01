@@ -1,4 +1,4 @@
-Debian OS, 
+Debian OS, Arch Linux (mysys in microsoft)
 
 Terminal : 
 
