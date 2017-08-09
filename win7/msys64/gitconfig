@@ -18,3 +18,5 @@
     template = ~/.gitmessage
 [core]
 	editor = vim
+[credential]
+    helper = cache
