@@ -1,9 +1,9 @@
 #!/bin/bash - 
 #===============================================================================
 #
-#          FILE: setup_git.sh
+#          FILE: setup_vim.sh
 # 
-#         USAGE: ./setup_git.sh 
+#         USAGE: ./setup_vim.sh 
 # 
 #   DESCRIPTION: 
 # 
@@ -11,17 +11,12 @@
 #  REQUIREMENTS: ---
 #          BUGS: ---
 #         NOTES: ---
-#        AUTHOR: Shaun (), 
+#        AUTHOR: YOUR NAME (), 
 #  ORGANIZATION: 
-#       CREATED: 08/ 1/2017 13:48
+#       CREATED: 05/08/2018 03:06
 #      REVISION:  ---
 #===============================================================================
 
 set -o nounset                              # Treat unset variables as an error
 
-# Setup gitlab
-
-# Setup github
-
-cp $(pwd)/../mac_os/iTerm/gitconfig /etc/gitconfig
 

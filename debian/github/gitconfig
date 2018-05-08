@@ -1,0 +1,23 @@
+[user]
+	name = fashaun
+	email = fashionshow0@gmail.com
+[alias]
+	co = checkout
+	ci = commit -a
+	st = status
+	br = branch
+	ph = push
+	pl = pull
+	cn = clone
+	lg = log --pretty=oneline
+	rmt = remote
+[color]
+	ui = true
+	diff = auto
+	log = auto
+[commit]
+    template = ~/.gitmessage
+[core]
+	editor = vim
+[credential]
+    helper = cache
