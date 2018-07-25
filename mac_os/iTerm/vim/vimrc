@@ -9,9 +9,12 @@ syntax on
 
 " file type should set off for some purpose
 
-
 " Show line number
 set nu
+
+" Set folder marker
+" zo : open folding , zm: fold code block
+set foldmethod=syntax
 
 " HilightSearch
 set hlsearch
@@ -39,8 +42,6 @@ set mouse=r
 :inoremap {<CR> {<CR>}<Esc>ko
 :inoremap {{ {}<ESC>i
 
-" Plugin key map
-map <f9> :Tlist<CR> "taglist
 
 " Enable backspace in insert mode
 set backspace=2
@@ -79,16 +80,26 @@ set autoread
 
 let g:BASH_AuthorName   = 'Shaun Lin'
 let g:BASH_Email        = 'fashionshow0415@gmail.com'
-let g:BASH_Company      = 'Open Source Corporation'''''''
+let g:BASH_Company      = 'Open Source Corporation'
 
-"filetype extend for 4ipnet html template
+
+function MakeScriptExecuteable()
+if getline(1) =~ "^#!.*/bin/bash"
+silent !chmod +x <afile> 
+endif
+endfunction
+
+"filetype extend
 au BufReadPost *.tpl set filetype=html
+au BufWritePost * call MakeScriptExecuteable()
 
+" High light unwanted spaces in end of linehighlight ExtraWhitespace
+" ctermbg=darkred guibg=darkcyanautocmd BufEnter * if &ft != 'help' | match ExtraWhitespace /\s\+$/ | endifautocmd BufEnter * if &ft == 'help' | match none /\s\+$/ | endif
 
 " vim-plug plugin manager for ondemand loading 
 call plug#begin('~/.vim/plugged')
     
-    "bash-support"
+    "bash-support
         Plug 'vim-scripts/bash-support.vim'
     "ctrlp plugin"
         Plug 'kien/ctrlp.vim'
@@ -96,15 +107,23 @@ call plug#begin('~/.vim/plugged')
         Plug 'powerline/powerline'
     "php
         Plug 'stanangeloff/php.vim'
-    "matchit : use % to jump end tag or end }/)/], depend on filetype
+    "you complete
+        Plug 'valloric/youcompleteme', { 'do': './install.py --go-completer --js-completer --clang-completer' }
+    "matchit : use % to jump end html tag or end }/)/], depend on filetype
         Plug 'vim-scripts/matchit.zip'
-    "cscope db creation"
-        Plug 'brookhong/cscope.vim'
-    "cscope keymap - Mirror from http://cscope.sourceforge.net/cscope_maps.vim
-        Plug 'chazy/cscope_maps'
-    "For C taglist
+    " Fugitive : You can use git command when you are in vim edit mode
+        Plug 'tpope/vim-fugitive'
+    " tag tool - taglist
         Plug 'vim-scripts/taglist.vim'
-        
-        
-    "For html folding ???    
+    " tag tool - tagbar
+    "Plug 'majutsushi/tagbar'
+    " Javascript Syntax Highlight
+        Plug 'pangloss/vim-javascript'
+    " javascript-libraries-syntax.vim
+        Plug 'othree/javascript-libraries-syntax.vim'
+    " Angular vim
+        Plug 'burnettk/vim-angular'
+    "Tern for vim
+    Plug 'marijnh/tern_for_vim'
 call plug#end()
+
