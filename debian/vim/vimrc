@@ -120,7 +120,7 @@ call plug#begin('~/.vim/plugged')
     "For syntax checking
         Plug 'scrooloose/syntastic'
     "For autocomplete   
-        Plug 'valloric/youcompleteme'
+        Plug 'valloric/youcompleteme', {'do' : '~/.vim/plugged/youcompleteme/install.py --go-completer --tern-completer --clang-completer --js-completer' } 
     "For html folding ???  
     " For directory diff
         Plug 'vim-scripts/DirDiff.vim'
