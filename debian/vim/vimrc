@@ -9,7 +9,6 @@ syntax on
 
 " file type should set off for some purpose
 
-
 " Show line number
 set nu
 
@@ -39,8 +38,6 @@ set mouse=r
 :inoremap {<CR> {<CR>}<Esc>ko
 :inoremap {{ {}<ESC>i
 
-" Plugin key map
-map <f9> :Tlist<CR> "taglist
 
 " Enable backspace in insert mode
 set backspace=2
@@ -84,10 +81,6 @@ let g:BASH_Company      = 'Open Source Corporation'''''''
 "filetype extend for 4ipnet html template
 au BufReadPost *.tpl set filetype=html
 
-" srcexpl hotkey
-nmap <F10> :SrcExplToggle<CR>
-
-
 " vim-plug plugin manager for ondemand loading
 " https://github.com/junegunn/vim-plug
 " Install automation
@@ -98,7 +91,14 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " vim ycm global variable
-let g:ycm_global_ycm_extra_conf='~/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+
+" Plugin key map
+map <f9> :Tlist<CR> "taglist
+
+" srcexpl hotkey
+nmap <F10> :SrcExplToggle<CR>
+
 call plug#begin('~/.vim/plugged')
     
     "bash-support"
@@ -116,7 +116,7 @@ call plug#begin('~/.vim/plugged')
     "cscope keymap - Mirror from http://cscope.sourceforge.net/cscope_maps.vim
         Plug 'chazy/cscope_maps'
     "For C taglist
-        "Plug 'vim-scripts/taglist.vim'
+        Plug 'vim-scripts/taglist.vim'
     "For syntax checking
         Plug 'scrooloose/syntastic'
     "For autocomplete   
