@@ -116,6 +116,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# golang env
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+
 if [ -n "$(dig +short mhqnetgitlab.moxa.com)" ]; then
     MOXAGITLABME="http://shaunch_lin:2kd0313SL@mhqnetgitlab.moxa.com:10080/ShaunCH_Lin"
     MOXAGITLAB="http://shaunch_lin:2kd0313SL@mhqnetgitlab.moxa.com:10080/vpncloud"
@@ -124,3 +128,16 @@ fi
 
 
 alias ssh_amazon='ssh -i ~/shaun_key.pem'
+
+function docker (){
+    action="$1"
+    arg1="$2"
+    arg2="$3"
+    arg3="$4"
+    echo "Run sudo in docker ..."
+    sudo docker "$1" "$2" "$3" "$4"
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

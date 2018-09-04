@@ -12,6 +12,10 @@ syntax on
 " Show line number
 set nu
 
+" set line break
+set wrap
+set linebreak
+
 " HilightSearch
 set hlsearch
 set incsearch
@@ -90,14 +94,61 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+function! Create_cscope_file(execfile)                                           
+    exe "! bash" a:execfile a:execfile                                                                  
+endfunction
+
+function! Create_cscope_out(cscope_files)                                           
+    exe "! cscope -bRq -i" a:cscope_files                                                                  
+endfunction
+
+" cscope automation
+if has("cscope")
+    let cscope_exec=findfile("cscope.sh", ".;")
+    if !empty(cscope_exec)
+        if cscope_exec ==? "cscope.sh"
+            set csre
+        endif
+        silent call Create_cscope_file(cscope_exec)
+        let cscope_files=findfile("cscope.files", ".;")
+        if !empty(cscope_files) && filereadable(cscope_files)
+            silent call Create_cscope_out(cscope_files)
+            let cscope_out=findfile("cscope.out", ".;")
+            if !empty(cscope_out) && filereadable(cscope_out)
+                silent exe "cs add" cscope_out
+            endif
+        endif
+    endif
+endif
+
+noremap <leader>cs :cs find s 
+noremap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>
+noremap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>
+noremap <C-\>i :cs find i <C-R>=expand("<cfile>")<CR><CR>
+
+" Plugin key map
 " vim ycm global variable
 let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
 
-" Plugin key map
+" vim taglist
 map <f9> :Tlist<CR> "taglist
+let Tlist_Show_One_File=1
+let Tlist_Exit_OnlyWindow=1
+set ut=100
 
-" srcexpl hotkey
-nmap <F10> :SrcExplToggle<CR>
+" vim srcexpl hotkey
+"nmap <F10> :SrcExplToggle<CR>
+"let g:SrcExpl_pluginList = [
+"    \"__Tag_List__",
+"    \"_NERD_tree_"
+"]
+
+"cscope
 
 call plug#begin('~/.vim/plugged')
     
