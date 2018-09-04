@@ -21,4 +21,5 @@ set -o nounset                              # Treat unset variables as an error
 
 version="$1"
 nvm install "$version"
+# Add npm and node path to environment
 nvm use "$version"
